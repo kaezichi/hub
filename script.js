@@ -70,9 +70,19 @@ createStars(150);
 setInterval(drawStars, 50);
 document.body.addEventListener("click", () => {
   const audio = document.getElementById("bgMusic");
+  const prompt = document.getElementById("tapPrompt");
+
   if (audio.paused) {
     audio.play().catch(err => {
       console.log("User gesture required to play the audio.");
     });
+  }
+
+  if (prompt) {
+    prompt.style.opacity = "0";
+    prompt.style.transition = "opacity 1s ease";
+    setTimeout(() => {
+      prompt.remove();
+    }, 1000);
   }
 });
