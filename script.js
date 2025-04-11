@@ -68,3 +68,11 @@ function drawStars() {
 }
 createStars(150);
 setInterval(drawStars, 50);
+document.body.addEventListener("click", () => {
+  const audio = document.getElementById("bgMusic");
+  if (audio.paused) {
+    audio.play().catch(err => {
+      console.log("User gesture required to play the audio.");
+    });
+  }
+});
